@@ -1,0 +1,173 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
+	
+	<script> src="cordova.js" </script>
+</head>
+
+<body>
+
+<div data-role="page" id="pageone" data-theme="b">
+	<div data-role="header">
+		<h1>Simple Calculator</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#pageone" data-icon="home">Home</a></li>
+				<li><a href="#pagetwo" data-transition="flip" data-icon="grid">Calculator</a></li>
+				<li><a href="#pagethree" data-transition="slide" data-icon="info">Help</a></li>
+			</ul>
+		</div>
+	</div><!-- /header -->
+	
+	<div data-role="main" class="ui-content">
+		<p>This is a jQuery mobile exercise which provides the user with a calculator for basic mathematical operations</p>
+	</div>	
+
+	<div data-role="footer">
+		<h2>Homework</h2>
+	</div>
+</div><!-- /page 1 -->
+
+<div data-role="page" id="pagetwo" data-theme="b">
+	<div data-role="header">
+		<h1>Simple Calculator</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#pageone" data-transition="slide" data-icon="home">Home</a></li>
+				<li><a href="#pagetwo" data-transition="flip" data-icon="grid">Calculator</a></li>
+				<li><a href="#pagethree" data-transition="slide" data-icon="info">Help</a></li>
+			</ul>
+		</div>
+	</div><!-- /header -->
+	
+	<div data-role="main" class="ui-content">
+	    <input type="number" id="firstVal"/>
+		
+		<div class="ui-field-contain">
+		<select id="operator" name="select-native-1">
+		<option value="add">+</option>
+		<option value="multiply">*</option>
+		<option value="minus">-</option>
+		<option value="divide">/</option>
+		</select><br/>
+		</div>
+		
+		<input type="number" id="secondVal"/><br/>
+		
+		<a href="#pagecalculate" data-transition="pop" class="ui-btn" onclick="calculate()">Calculate</a>
+		
+	</div>	
+
+	<div data-role="footer">
+		<h2>Homework</h2>
+	</div>
+</div><!-- /page 2 -->
+
+<div data-role="page" id="pagecalculate" data-theme="b">
+	<div data-role="header">
+		<h1>Results</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#pageone" data-transition="slide" data-icon="home">Home</a></li>
+				<li><a href="#pagetwo" data-transition="flip" data-icon="grid">Calculator</a></li>
+				<li><a href="#pagethree" data-transition="slide" data-icon="info">Help</a></li>
+			</ul>
+		</div>
+    </div> <!--close header-->
+ 
+	<div data-role="main" class="ui-content">
+		<p>Operation: </p>
+		<input type="text" id="operation" readonly="true"/>
+		<p>Results</p>
+		<input type="text" id="result" readonly="true"/>
+		</br>
+		<a href="#pagetwo" data-transition="flip" data-icon="back" data-role="button">Back</a>
+	</div>
+	
+	<div data-role="footer">
+		<h2>Homework</h2>
+	</div>
+</div><!-- /page 5 -->
+
+
+
+
+<div data-role="page" id="pagethree" data-theme="b">
+	<div data-role="header">
+		<h1>Simple Calculator</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#pageone" data-transition="slide" data-icon="home">Home</a></li>
+				<li><a href="#pagetwo" data-transition="flip" data-icon="grid">Calculator</a></li>
+				<li><a href="#pagethree" data-transition="slide" data-icon="info">Help</a></li>
+			</ul>
+		</div>
+	</div><!-- /header -->
+	
+	<div data-role="main" class="ui-content">
+		<p>This is the help section and provides basic information about how to use the calculator</p>
+		
+			<a href="#pagefour" class="ui-btn ui-icon-info ui-btn-icon-left" >More Info</a>
+	</div>	
+
+	<div data-role="footer">
+		<h2>Homework</h2>
+	</div>
+</div><!-- /page 3 -->
+
+
+<div date-role="page" data-dialog="true" id="pagefour" data-theme="a"> 
+	
+	<div data-role="header">
+		<h1>More Info</h1>
+	</div><!-- /header -->
+	
+	<div data-role="main" class="ui-content">
+		<p>You have requested more information about the App!</p>
+		<a href="#pagethree" data-transition="pop" data-icon="back" data-role="button">Back</a>
+	</div>	
+
+	<div data-role="footer">
+		<h2>Footer</h2>
+	</div>
+</div><!-- /page 4 -->
+
+
+<script>
+function calculate(){
+	var firstVal = parseInt(document.getElementById('firstVal').value);
+	var secondVal = parseInt(document.getElementById('secondVal').value);
+	var operation = document.getElementById('operator').value;
+	var result=0;
+	var x = document.getElementById('operator');
+    var y = x.options[x.selectedIndex].text;
+	
+	
+    if (operation == "add") {
+         document.getElementById('result').value = firstVal + secondVal;
+    } else if (operation == "minus") {
+         document.getElementById('result').value= firstVal - secondVal;
+    } else if (operation == "divide") {
+          document.getElementById('result').value = firstVal / secondVal;
+    } else if (operation == "multiply") {
+          document.getElementById('result').value = firstVal * secondVal;
+    }
+	var op = firstVal + " " + y + " " + secondVal;
+    document.getElementById('operation').value=op;
+}
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
